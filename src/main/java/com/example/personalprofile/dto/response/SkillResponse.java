@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SkillResponse {
+    private Long id;
     private String name;
     private String category;
     private int level;

@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EducationResponse {
+    private Long id;
     private String institutionName;
     private String degree;
     private String fieldOfStudy;

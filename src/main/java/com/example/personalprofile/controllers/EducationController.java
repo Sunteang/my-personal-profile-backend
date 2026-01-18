@@ -24,6 +24,7 @@ public class EducationController {
     public ResponseEntity<ApiResponse<List<EducationResponse>>> getAllEducations() {
         List<EducationResponse> list = educationService.getAllEducations().stream()
                 .map(e -> new EducationResponse(
+                        e.getId(),
                         e.getInstitutionName(),
                         e.getDegree(),
                         e.getFieldOfStudy(),
@@ -39,6 +40,7 @@ public class EducationController {
     public ResponseEntity<ApiResponse<EducationResponse>> getEducationById(@PathVariable Long id) {
         Education e = educationService.getEducationById(id).orElseThrow(() -> new RuntimeException("Education not found"));
         EducationResponse response = new EducationResponse(
+                e.getId(),
                 e.getInstitutionName(),
                 e.getDegree(),
                 e.getFieldOfStudy(),
@@ -53,6 +55,7 @@ public class EducationController {
     public ResponseEntity<ApiResponse<EducationResponse>> createEducation(@RequestBody Education e) {
         Education created = educationService.createEducation(e);
         EducationResponse response = new EducationResponse(
+                created.getId(),
                 created.getInstitutionName(),
                 created.getDegree(),
                 created.getFieldOfStudy(),
@@ -67,6 +70,7 @@ public class EducationController {
     public ResponseEntity<ApiResponse<EducationResponse>> updateEducation(@PathVariable Long id, @RequestBody Education e) {
         Education updated = educationService.updateEducation(id, e);
         EducationResponse response = new EducationResponse(
+                updated.getId(),
                 updated.getInstitutionName(),
                 updated.getDegree(),
                 updated.getFieldOfStudy(),

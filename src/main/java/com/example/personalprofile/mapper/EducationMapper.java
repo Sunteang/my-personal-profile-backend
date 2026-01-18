@@ -9,6 +9,7 @@ public class EducationMapper {
         if (e == null) return null;
 
         return new EducationResponse(
+                e.getId(),
                 e.getInstitutionName(),
                 e.getDegree(),
                 e.getFieldOfStudy(),

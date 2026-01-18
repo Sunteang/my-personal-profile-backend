@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SocialLinkResponse {
+    private Long id;
     private String platform;
     private String url;
 }

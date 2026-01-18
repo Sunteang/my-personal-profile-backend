@@ -7,6 +7,12 @@ public class SkillMapper {
 
     public static SkillResponse toSkillResponse(Skill s) {
         if (s == null) return null;
-        return new SkillResponse(s.getName(), s.getCategory(), s.getLevel());
+
+        return new SkillResponse(
+                s.getId(),
+                s.getName(),
+                s.getCategory(),
+                s.getLevel()
+        );
     }
 }

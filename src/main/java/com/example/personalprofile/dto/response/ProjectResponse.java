@@ -9,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectResponse {
+    private Long id;
     private String title;
     private String description;
     private String imageUrl;

@@ -9,6 +9,7 @@ public class ExperienceMapper {
         if (e == null) return null;
 
         return new ExperienceResponse(
+                e.getId(),
                 e.getRole(),
                 e.getCompany(),
                 e.getStartDate(),

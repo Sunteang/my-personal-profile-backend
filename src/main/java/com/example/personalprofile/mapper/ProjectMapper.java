@@ -11,6 +11,7 @@ public class ProjectMapper {
         if (p == null) return null;
 
         return ProjectResponse.builder()
+                .id(p.getId())
                 .title(p.getTitle())
                 .description(p.getDescription())
                 .imageUrl(p.getImageUrl())

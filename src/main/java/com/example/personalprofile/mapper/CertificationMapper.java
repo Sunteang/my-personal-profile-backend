@@ -9,6 +9,7 @@ public class CertificationMapper {
         if (c == null) return null;
 
         return new CertificationResponse(
+                c.getId(),
                 c.getName(),
                 c.getIssuer(),
                 c.getYear(),

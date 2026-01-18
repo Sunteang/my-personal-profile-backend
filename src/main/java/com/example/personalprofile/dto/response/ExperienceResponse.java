@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExperienceResponse {
+    private Long id;
     private String role;
     private String company;
     private String startDate;

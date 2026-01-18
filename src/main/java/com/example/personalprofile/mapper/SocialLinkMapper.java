@@ -7,6 +7,6 @@ public class SocialLinkMapper {
 
     public static SocialLinkResponse toSocialLinkResponse(SocialLink s) {
         if (s == null) return null;
-        return new SocialLinkResponse(s.getPlatform(), s.getUrl());
+        return new SocialLinkResponse(s.getId(), s.getPlatform(), s.getUrl());
     }
 }

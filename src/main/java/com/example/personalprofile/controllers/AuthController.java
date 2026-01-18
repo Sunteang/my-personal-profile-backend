@@ -111,8 +111,6 @@ public class AuthController {
     }
 
 
-
-
     // ---------------- DTOs ----------------
     public static class RegisterRequest {
         private String username;

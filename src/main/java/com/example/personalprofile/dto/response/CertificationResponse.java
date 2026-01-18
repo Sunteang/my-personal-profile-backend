@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CertificationResponse {
+    private Long id;
     private String name;
     private String issuer;
     private String year;
