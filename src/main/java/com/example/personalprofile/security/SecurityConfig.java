@@ -55,17 +55,15 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
         http
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> {})
+                // Change .cors(cors -> {}) to this:
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
-                        // allow auth endpoints
                         .requestMatchers("/api/auth/**").permitAll()
-                        // allow public portfolio endpoints
                         .requestMatchers(
                                 "/api/profiles/**",
                                 "/api/skills/**",
@@ -76,7 +74,6 @@ public class SecurityConfig {
                                 "/api/certifications/**",
                                 "/api/contact/**"
                         ).permitAll()
-                        // any other endpoints require authentication
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
@@ -86,11 +83,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000")); // your frontend
+        // ✅ ADD YOUR RENDER URL HERE
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "https://sunteang-serey-portfolio.onrender.com"
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
